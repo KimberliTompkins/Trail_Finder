@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lat: {
+        long: {
             type: DataTypes.STRING,
             allowNull: false
         }
@@ -24,6 +24,8 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     Trail.associate = function (models) {
+        // Associating Trail with Favorite
+       // When an Trail is deleted, also delete any associated Ques
         Trail.hasMany(models.Favorite, {
             onDelete: "cascade"
         });

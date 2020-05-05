@@ -5,6 +5,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        trailId: {
+            type:DataTypes.INTEGER,
+            allowNull: false
+        },
         lat: {
             type: DataTypes.STRING,
             allowNull: false

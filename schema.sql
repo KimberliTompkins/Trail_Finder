@@ -1,4 +1,4 @@
--- Drops the blogger if it exists currently --
-DROP DATABASE IF EXISTS trail;
--- Creates the "blogger" database --
-CREATE DATABASE trail;
+-- Drops the trailMaster_db if it exists currently --
+DROP DATABASE IF EXISTS trailMaster_db;
+-- Creates the "trailMaster_db" database --
+CREATE DATABASE trailMaster_db;

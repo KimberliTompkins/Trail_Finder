@@ -8,6 +8,7 @@ require("dotenv").config();
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
+var mustacheExpress = require("mustache-express");
 var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
@@ -19,6 +20,11 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Mustache Setup
+app.engine('mst', mustacheExpress(__dirname + '/views/partials', '.mst'));
+app.set('view engine', 'mst');
+app.set('views', __dirname + '/views');
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

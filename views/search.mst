@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
+ <head>
+    <link rel="stylesheet" href="stylesheets/style.css" />
 
     <link
       rel="stylesheet"
@@ -29,33 +29,31 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Trail Finder</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="search.html">Trails Near Me</a>
-          <a class="nav-item nav-link" href="forecast.html">Forecast</a>
-        </div>
-      </div>
-    </nav>
+  {{>nav}}
 
-    <div class="container">
-      <div class="headerIMG"></div>
-      <div class="centered">Colorado Trail Finder</div>
-    </div>
-  </body>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+{{>map}}
+
+<div id="serach"> 
+    <form action="#"></form>
+    <fieldset>
+        <label for="searchTrail">Search for trails in:</label>
+        <select name="searchTrail" id="searchTrail">
+        </select>
+       </fieldset> 
+    </form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/map.js"></script>
+
+</body>
 </html>
+  </body>
+  </html>
+  

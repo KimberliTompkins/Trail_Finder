@@ -3,9 +3,9 @@ const axios = require("axios");
 
 module.exports = function (app) {
 
-  app.get("/api/trails/favorite", function (req, res) {
+  app.get("/api/trails/favorite", (req, res) => {
     var idList = "";
-    db.Favorite.findAll({}).then(function (dbFavorite) {
+    db.Favorite.findAll({}).then(dbFavorite => {
       //res.json(dbFavorite);
       for (const index in dbFavorite) {
         idList = idList + `${dbFavorite[index].trailId},`
@@ -17,16 +17,15 @@ module.exports = function (app) {
           res.json(response.data)
         })
         .catch((error) => {
-          if (error) throw error;
+          res.status(401).json(error);
         });
 
     });
   });
 
 
-  app.post("/api/trails/favorite", function (req, res) {
-    console.log(req.body)
-    db.Favorite.create(req.body).then(function (dbFavorite) {
+  app.post("/api/trails/favorite", (req, res) =>{
+    db.Favorite.create(req.body).then(dbFavorite => {
       res.json(dbFavorite);
     });
   });

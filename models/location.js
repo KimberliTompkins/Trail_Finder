@@ -5,18 +5,13 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         lat: {
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isInt: true
-              }
         },
         lon: {
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isInt: true
-              }
+            
         }
     });
 

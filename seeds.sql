@@ -19,3 +19,17 @@ insert into favorites(TrailId,Userid,createdAt,updatedAt)
 values(7001041,1, CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 insert into favorites(TrailId,Userid,createdAt,updatedAt) 
 values(7003636,1, CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Bailey",39.1352586,-108.2956396,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Estes Park",40.376129,-105.523651,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Evergreen",39.633518,-105.328888,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Pine",39.469791,-105.376762,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Fraser",39.947635,-105.818866,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into locations(name,lat,lon,createdAt,updatedAt) 
+values("Rocky Mt. National Park",39.140701,-105.658967,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+

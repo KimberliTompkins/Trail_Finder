@@ -27,7 +27,7 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
   app.get("/forecast", function (req, res) {
-    res.render("landing");
+    res.render("forecast");
   });
   app.get("/homepage", function (req, res) {
     res.render("homepage");

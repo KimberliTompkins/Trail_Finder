@@ -28,6 +28,7 @@
     <title>Document</title>
   </head>
   <body>
+  <div class=wrapper>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Trail Finder</a>
       <button
@@ -58,4 +59,5 @@
     
       
     </div>
- 
+ </div>
+</body>

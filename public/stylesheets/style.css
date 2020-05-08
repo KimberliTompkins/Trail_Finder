@@ -31,3 +31,17 @@ form.login {
 .nav {
   align: center;
 }
+#map{
+margin:10px auto 50px;
+
+}
+#serach{
+ display: flex;
+flex-direction: row-reverse;
+margin-top: 10px;
+
+}
+#search-label{
+  color:black;
+}
+

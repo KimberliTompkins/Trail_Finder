@@ -8,5 +8,6 @@
 </style>
 </head>
 <body>
-      
- <div id="map" style="width: 800px; height:400px;"></div> 
+  <div class="container">    
+ <div id="map"  style="width: 80%; height:80vh;"></div> 
+ </div>

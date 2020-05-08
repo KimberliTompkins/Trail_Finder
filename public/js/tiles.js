@@ -15,6 +15,15 @@ $.get("/api/trails/favorite").then(function (data) {
   var count = 0;
   for (i = 0; i< top10.length && i < 10; i++) {
     var top10Div = $(`#number${count}`);
+    var currentLat = $(`#top${count}Lat`);
+    var currentLong = $(`#top${count}Long`);
+    var imgLink = top10[i].imgSqSmall;
+    var link = top10[i].url;
+    var image = $(
+      "<a href=" + link + "><img src= " + top10[i].imgSqSmall + " /></a>"
+    );
+    top10Div.append(image);
+    //
     var name = $("<div>" + "Name: " + top10[i].name + "</div>");
     top10Div.append(name);
     //

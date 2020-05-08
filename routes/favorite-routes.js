@@ -25,10 +25,22 @@ module.exports = function (app) {
 
 
   app.post("/api/trails/favorite", (req, res) =>{
+    console.log(req.params);
     db.Favorite.create(req.body).then(dbFavorite => {
       res.json(dbFavorite);
     });
   });
 
+  app.delete("/api/trails/favorite", function(req, res) {
+   console.log(req.params);
 
+    db.Favorite.destroy({
+      where: {
+        userId: req.params.id,
+        trailId: req.params.trailId
+      }
+    }).then( (error)=> {
+      res.status(401).json(error);
+    })
+  });
 };

@@ -7,7 +7,7 @@ var passport = require("./config/passport");
 require("dotenv").config();
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 var mustacheExpress = require("mustache-express");
 var db = require("./models");
 

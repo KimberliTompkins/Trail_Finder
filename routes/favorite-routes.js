@@ -50,7 +50,9 @@ module.exports = function (app) {
         userId: req.params.id,
         trailId: req.params.trailId
       }
-    }).then( (error)=> {
+    }).then( () =>{
+      res.status(200).end();
+    }).catch((error)=> {
       res.status(401).json(error);
     })
   });

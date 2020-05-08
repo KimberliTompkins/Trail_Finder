@@ -31,7 +31,7 @@ module.exports = function (app) {
     });
   });
 
-  app.delete("/api/trails/favorite", function(req, res) {
+  app.delete("/api/trails/favorite/:id/:trailId", function(req, res) {
    console.log(req.params);
 
     db.Favorite.destroy({

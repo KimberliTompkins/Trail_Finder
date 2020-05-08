@@ -1,15 +1,15 @@
 
 function postFavorite(trailId) {
     //get the id from the logged in user
-    $.get("/api/user_data").then(function (data) {
+    $.get("/api/user_data").then(function(data) {
         $(".member-name").text(data.email);
-        console.log(data.id);
+        data = { UserId: data.id, trailId: trailId };
         //save the trail as a favorite attached to the user
-        $.post("/api/trails/favorite", data.id, trailId)
-            .then(error);
-            if(error) throw error;
-    });
-};
+        console.log(data);
+        $.post("/api/trails/favorite",data)
+        .then();
+      });
+}; 
 
 function deleteFavorite(trailId) {
     //get the id from the logged in user
@@ -18,8 +18,14 @@ function deleteFavorite(trailId) {
         $(".member-name").text(data.email);
         console.log(data.id);
         //save the trail as a favorite attached to the user
-        $.delete("/api/trails/favorite", data.id, trailId)
+        $.ajax({
+            method: "DELETE",
+            url: "/api/trails/favorite" + data.id + "trailId"
+          })
             .then();
+           
+       
+       
     });
 };
 
@@ -37,7 +43,7 @@ function hearts() {
 
         $("#heart").append("").append(icon);
         $("#heart").attr("data-fill", "off");
-        deleteFavorite(7003636);
+        deleteFavorite("7003636");
     }
     else { 
         $("#heart").empty();

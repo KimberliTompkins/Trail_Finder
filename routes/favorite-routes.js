@@ -23,12 +23,37 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/trails/favorite/:id/:trailId",function(req,res){
+    
+    db.Favorite.findAll({
+      where: {
+        UserId: req.params.id,
+        trailId: req.params.trailId,
 
+      }
+    }).then(dbFavorite => {
+      res.json(dbFavorite)
+    })
+  })
   app.post("/api/trails/favorite", (req, res) =>{
+    console.log(req.params);
     db.Favorite.create(req.body).then(dbFavorite => {
       res.json(dbFavorite);
     });
   });
+ 
+  app.delete("/api/trails/favorite/:id/:trailId", function(req, res) {
+   console.log(req.params);
 
-
+    db.Favorite.destroy({
+      where: {
+        userId: req.params.id,
+        trailId: req.params.trailId
+      }
+    }).then( () =>{
+      res.status(200).end();
+    }).catch((error)=> {
+      res.status(401).json(error);
+    })
+  });
 };

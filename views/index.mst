@@ -26,6 +26,7 @@
   </head>
   <body>
   {{>nav}}
+
       <div class="top10s" id="number0"></div>
       <div class="top10s" id="number1"></div>
       <div class="top10s" id="number2"></div>
@@ -36,6 +37,11 @@
       <div class="top10s" id="number7"></div>
       <div class="top10s" id="number8"></div>
       <div class="top10s" id="number9"></div>
+
+     <div class="container" id="map" >
+       {{>map}}
+     </div>
+
   <script src="/js/tiles.js"></script>
   </body>
   </html>

@@ -2,10 +2,8 @@ $(document).ready(function () {
   $("#search-button").on("click", function () {
     var searchValue = $("#search-value").val();
     $("#search-value").val("");
+    console.log($(".number0").attr('data-location'))
     searchWeather(searchValue);
-  });
-  $(".history").on("click", "li", function () {
-    searchWeather($(this).text());
   });
   function makeRow(text) {
     var li = $("<li>")
@@ -57,7 +55,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
         $("#forecast")
-          .html('<h4 class="mt-3">5-Day Forecast:</h4>')
+          //.html('<h4 class="mt-3">5-Day Forecast:</h4>')
           .append('<div class="row">');
         for (i = 0; i < data.list.length; i++) {
           if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {

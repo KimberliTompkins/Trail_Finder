@@ -3,8 +3,8 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
 
 <style>
-	body { margin: 0; padding: 50; }
-	#map {  top: 0; bottom: 0; width: 50%; }
+	body { margin: 0; padding: 0; }
+	#map {  top: 0; bottom: 0; width: 100%; }
 </style>
 </head>
 <body>

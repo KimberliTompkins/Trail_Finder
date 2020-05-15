@@ -26,23 +26,57 @@
   </head>
   <body>
   {{>nav}}
+  <div class="jumbotron-fluid">
+    <div class="container-fluid">
+      <div class="row mt-2">
+           <div class="col-md-2 text-dark bg-light" >
+              <h5 class= "text-center">Suggested Tails</h5>
+              <div class="top10s" id="number0"></div>
+              <div class="top10s" id="number1"></div>
+              <div class="top10s" id="number2"></div>
+              <div class="top10s" id="number3"></div>
+              <div class="top10s" id="number4"></div>
+              <div class="top10s" id="number5"></div>
+              <div class="top10s" id="number6"></div>
+              <div class="top10s" id="number7"></div>
+              <div class="top10s" id="number8"></div>
+              <div class="top10s" id="number9"></div>
+           </div>
+           <div class="col-md-10 text-dark">
+              <div class="row mt-2">
+                 <div class="col-md-12 text-dark">
+                   <div class="container-fluid" id="map" >
+                       {{>map}}
+                    </div>
+                  </div>  
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-12 text-dark bg-light">
+                   <h5 class="text-center">5 Day Forecast</h5>
+                   <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div id="today" class="mt-3"></div>
+                          <div id="forecast" class="mt-3"></div>
+                           <h5 class="mt-1">Search for a City:</h5>
+                           <div class="form-inline form-group">
+                              <input class="form-control" type="text" id="search-value" />
+                              <button class="btn btn-primary" id="search-button">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+           </div>
+      </div>                      
+    </div>
+ </div>
 
-      <div class="top10s" id="number0"></div>
-      <div class="top10s" id="number1"></div>
-      <div class="top10s" id="number2"></div>
-      <div class="top10s" id="number3"></div>
-      <div class="top10s" id="number4"></div>
-      <div class="top10s" id="number5"></div>
-      <div class="top10s" id="number6"></div>
-      <div class="top10s" id="number7"></div>
-      <div class="top10s" id="number8"></div>
-      <div class="top10s" id="number9"></div>
-
-     <div class="container" id="map" >
-       {{>map}}
-     </div>
 
   <script type="text/javascript"  src="/js/tiles.js"></script>
-  <script type="text/javascript" src="js/map.js"></script>
+  <script type="text/javascript" src="/js/map.js"></script>
+  <script type="text/javascript" src="/js/forecast.js"></script>
   </body>
   </html>

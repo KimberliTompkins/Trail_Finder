@@ -11,9 +11,9 @@ var heart;
 $.get("/api/trails").then(function (data) {
   var top10 = data.trails;
  
-  console.log(top10);
+  
   var count = 0;
-  for (i = 0; i < top10.length && i < 10; i++) {
+  for (i = 0; i < top10.length && i < 5; i++) {
      
     function hearts(top10,count){
       $.get("/api/user_data").then(function (data) {
@@ -21,7 +21,6 @@ $.get("/api/trails").then(function (data) {
         //save the trail as a favorite attached to the user
         console.log(` USERID: ${data.id}`);
         var retVal;
-        console.log(top10.id)
         $.ajax({
           method: "GET",
           url: `/api/trails/favorite/${data.id}/${top10.id}`,
@@ -30,7 +29,7 @@ $.get("/api/trails").then(function (data) {
           success: function( res ) {
             
             var top10Div = $(`#number${count}`);
-            var image = `<img src=${top10.imgSqSmall} class="trailImage" data-lat=${top10.latitude} data-long=${top10.longitude}>`
+            var image = `<img src=${top10.imgSqSmall} class="trailImage" data-lat=${top10.latitude} data-long=${top10.longitude} data-location=${top10.location}>`
             top10Div.append(image);
             //
             var name = $("<div>" + "Name: " + top10.name + "</div>");
@@ -90,7 +89,6 @@ function postFavorite(trailId) {
     $(".member-name").text(data.email);
     data = { UserId: data.id, trailId: trailId };
     //save the trail as a favorite attached to the user
-    console.log(data);
     $.post("/api/trails/favorite", data)
       .then();
   });
@@ -98,7 +96,6 @@ function postFavorite(trailId) {
 
 function deleteFavorite(trailId) {
   //get the id from the logged in user
-  console.log("delete");
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
     console.log(data.id);

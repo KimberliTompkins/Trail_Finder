@@ -42,6 +42,7 @@
        {{>map}}
      </div>
 
-  <script src="/js/tiles.js"></script>
+  <script type="text/javascript"  src="/js/tiles.js"></script>
+  <script type="text/javascript" src="js/map.js"></script>
   </body>
   </html>

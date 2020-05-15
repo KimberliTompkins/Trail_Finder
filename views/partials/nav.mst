@@ -22,11 +22,6 @@
         </div>
       </div>
     </nav>
-
-    <div class="container">
-      <div class="headerIMG"></div>
-
-    
-      
-    </div>
- </div>
+     </div>
+    <div class="headerIMG"></div>
+    <div class="container"></div>

@@ -25,14 +25,16 @@ $("#searchTrail").change(function () {
 	var options =  $( "#searchTrail" ).val();
 	var long = $("#searchTrail").find(":selected").attr('data-long');
 	var lat = $("#searchTrail").find(":selected").attr('data-lat');
-	console.log(options,long,lat);
 	renderMap(long, lat)
 });
 //
 
-
-
-
+$("body").on("click",".trailImage",function (){
+	var long = $(this).attr("data-long");
+var lat = $(this).attr("data-lat");
+renderMap(long, lat)
+});
+ 
 
 
 

@@ -40,13 +40,6 @@
            </div>
            <div class="col-md-10 text-dark">
               <div class="row mt-2">
-                 <div class="col-md-12 text-dark">
-                   <div class="container-fluid" id="map" >
-                       {{>map}}
-                    </div>
-                  </div>  
-              </div>
-              <div class="row mt-2">
                 <div class="col-md-12 text-dark ">
                    <h5 class="text-center" id="forecastHeader"></h5>
                    <div class="container-fluid">
@@ -61,6 +54,13 @@
                     </div>
                 </div>
               </div>
+              <div class="row mt-2">
+   <div class="col-md-12 text-dark">
+     <div class="container-fluid" id="map" >
+         {{>map}}
+      </div>
+    </div>  
+</div>
            </div>
       </div>                      
     </div>

@@ -167,27 +167,22 @@ function searchWeather(searchValue) {
       "&appid=9ceffc16572e37c6256c7430926365a7&units=imperial",
     dataType: "json",
     success: function (data) {
-      console.log(data);
+      console.log(data.name);
+      $("#forecastHeader").html(`${data.name} - 5 Day Forecast`);
       $("#today").empty();
       $("#forecast").empty();
+      
       var card = $("<div>").addClass("card");
-      var wind = $("<div>")
-        .addClass("card-text")
-        .text("wind speed" + data.wind.speed);
-      var humid = $("<div>")
-        .addClass("card-text")
-        .text("Humidity" + data.main.humidity);
-      var temp = $("<div>")
-        .addClass("card-text")
-        .text("Temperature" + data.main.temp);
+      var todayDetails = $("<p class= 'text-center'>")
+        .text("Temperature: " + data.main.temp + " Humidity: " + data.main.humidity + " wind speed: " + data.wind.speed);
       var cardBody = $("<div>").addClass("card-body");
       var img = $("<img>").attr(
         "src",
         "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
-      cardBody.append(temp, humid, wind);
+      cardBody.append(todayDetails);
       card.append(cardBody);
-      $("#today").append(card);
+      $("#today").append(todayDetails);
       getForecast(searchValue);
     },
   });

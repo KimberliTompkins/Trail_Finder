@@ -1,10 +1,9 @@
-$(document).ready(function () {
-  $("#search-button").on("click", function () {
-    var searchValue = $("#search-value").val();
-    $("#search-value").val("");
-    console.log($(".number0").attr('data-location'))
-    searchWeather(searchValue);
-  });
+  // window.onload = function () {
+      //  var searchValue = `lat=39.9787&lon=-105.2755`
+//  searchWeather(searchValue);
+
+  // }
+  //  
   function makeRow(text) {
     var li = $("<li>")
       .addClass("list-group-item list-group-item-action")
@@ -15,9 +14,9 @@ $(document).ready(function () {
     $.ajax({
       type: "GET",
       url:
-        "https://api.openweathermap.org/data/2.5/weather?q=" +
+        "https://api.openweathermap.org/data/2.5/weather?" +
         searchValue +
-        "&appid=13730915aa4abe92f3e584777a1a74d8&units=imperial",
+        "&appid=9ceffc16572e37c6256c7430926365a7&units=imperial",
       dataType: "json",
       success: function (data) {
         console.log(data);
@@ -49,7 +48,7 @@ $(document).ready(function () {
     $.ajax({
       type: "GET",
       url:
-        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?" +
         searchValue +
         "&appid=13730915aa4abe92f3e584777a1a74d8&units=imperial",
       dataType: "json",
@@ -81,12 +80,4 @@ $(document).ready(function () {
       },
     });
   }
-  //uv function would go here
-  var history = JSON.parse(window.localStorage.getItem("history")) || [];
-  if (history.length > 0) {
-    searchWeather(history[history.length - 1]);
-  }
-  for (i = 0; i < history.length; i++) {
-    makeRow(history[i]);
-  }
-});
+

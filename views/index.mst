@@ -30,7 +30,8 @@
     <div class="container-fluid">
       <div class="row mt-2">
            <div class="col-md-2 text-dark bg-light" >
-              <h5 class= "text-center">Suggested Trails</h5>
+              <h5 >Suggested Trails</h5>
+              <h6 class="font-weight-lighter mb-3" style="font-size: 10px;">click image for more details</h6>
               <div class="top10s" id="number0"></div>
               <div class="top10s" id="number1"></div>
               <div class="top10s" id="number2"></div>
@@ -38,14 +39,26 @@
               <div class="top10s" id="number4"></div>
               <div class="top10s" id="number5"></div>
            </div>
-           <div class="col-md-10 text-dark">
+              <div class="col-md-10 text-dark">
+                
+
+              <div class="row mt-2">
+              <div class="media" id="trailImageCenter">
+   
+              </div>
+
+              </div>
               <div class="row mt-2">
                 <div class="col-md-12 text-dark ">
-                   <h5 class="text-center" id="forecastHeader"></h5>
+                  <div class="row">
+                   <h5 id="forecastHeader"></h5>
+                  <div id="today" class="ml-2  "></div>
+                  </div>
+                  
                    <div class="container-fluid">
-                   <div id="today" class="mt-1 "></div>
                       <div class="row">
-                      <div class="col-md-2"></div>
+                      {{! <div class="col-md-2"> }}
+                      {{! </div> }}
                         <div class="col">
                           <div id="forecast" class="mt-1 "></div>
                         </div>
@@ -55,12 +68,12 @@
                 </div>
               </div>
               <div class="row mt-2">
-   <div class="col-md-12 text-dark">
-     <div class="container-fluid" id="map" >
-         {{>map}}
-      </div>
-    </div>  
-</div>
+                <div class="col-md-12 text-dark">
+                  <div class="container-fluid" id="map" >
+                      {{>map}}
+                  </div>
+                </div>  
+              </div>
            </div>
       </div>                      
     </div>

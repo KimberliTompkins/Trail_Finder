@@ -21,13 +21,33 @@ $.get("/api/trails").then(function (data) {
      if (i===0){
        lat = top10[i].latitude;
        long = top10[i].longitude;
+       centerImage = top10[i].imgMedium;
        //render map
        renderMap(long,lat);
        //render 5 day forecast
        var forecastValue = `lat=${lat}&lon=${long}`;
        //render forecast
        searchWeather(forecastValue);
-     }
+       //render center image
+       $("#trailImageCenter").append(`<img src="${centerImage}" class="mr-3" >`);
+       //render trail details
+       var trailDetails = $(`<div class="media-body" id="trailDetails">`);
+       trailDetails.append( `<h5 class="mt-0">Trail Details:</h5>`);
+       var conditionUL = $(`<ul><li>difficulty: ${top10[i].difficulty}</li>
+                                <li>stars: ${top10[i].stars}</li>
+                                <li>length: ${top10[i].length}</li>
+                                <li>ascent: ${top10[i].ascent}</li>
+                                <li>high: ${top10[i].high}</li>
+                                <li>low: ${top10[i].low}</li>
+                                <li>longitude: ${top10[i].longitude}</li>
+                                <li>latitude: ${top10[i].latitude}</li></ul>
+                               <h6> current conditions</h6>
+                               <ul><li>status: ${top10[i].conditionStatus}</li>
+                               <li>details: ${top10[i].conditionDetails}</li></ul>`);
+       trailDetails.append(conditionUL);
+       $("#trailImageCenter").append(trailDetails);
+    }
+     
     function hearts(top10,count){
       //get id of logged in user
       $.get("/api/user_data").then(function (data) {
@@ -44,18 +64,18 @@ $.get("/api/trails").then(function (data) {
             
             var top10Div = $(`#number${count}`);
             top10Div.attr("data-lat",top10.latitude).attr("data-long",top10.longitude);
-            var image = `<img src=${top10.imgSqSmall} class="trailImage" data-lat=${top10.latitude} data-long=${top10.longitude} data-location=${top10.location}>`
+            var image = `<img src=${top10.imgSqSmall} class="trailImage" data-trailId=${top10.id} data-lat=${top10.latitude} data-long=${top10.longitude} data-location=${top10.location}>`
             top10Div.append(image);
             //
-            var name = $("<div>" + "Name: " + top10.name + "</div>");
+            var name = $("<div class='text-dark'>"  + top10.name + "</div>");
             top10Div.append(name);
             
-            var location = $("<div>" + "Location: " + top10.location + "</div>");
+            var location = $("<div>" + top10.location + "</div>");
             top10Div.append(location);
             //
             var summary = $("<div>" + "summary: " + top10.summary + "</div>");
             top10Div.append(summary);
-          
+            
             
             if (res.length > 0){
             var heart = $("<p class='heart' data-trailId = " + top10.id + " data-fill = on></p>")
@@ -138,14 +158,36 @@ function renderMap(long, lat) {
 };
 
 $("body").on("click",".trailImage",function (){
-	var long = $(this).attr("data-long");
+var long = $(this).attr("data-long");
 var lat = $(this).attr("data-lat");
+var trailId = $(this).attr("data-trailId");
 //render map
 renderMap(long, lat)
 //render 5 day forecast
 var forecastValue = `lat=${lat}&lon=${long}`;
-//render forecast
 searchWeather(forecastValue);
+//render center image and get details
+$.get(`/api/trails/${trailId}`).then(function (data) {
+  var trails = data.trails;
+  $("#trailImageCenter").empty();
+  $("#trailImageCenter").append(`<img src="${trails[0].imgMedium}" class="mr-3" >`);
+  //render trail details
+  var trailDetails = $(`<div class="media-body" id="trailDetails">`);
+  trailDetails.append( `<h5 class="mt-0">Trail Details:</h5>`);
+  var conditionUL = $(`<ul><li>difficulty: ${trails[0].difficulty}</li>
+                           <li>stars: ${trails[0].stars}</li>
+                           <li>length: ${trails[0].length}</li>
+                           <li>ascent: ${trails[0].ascent}</li>
+                           <li>high: ${trails[0].high}</li>
+                           <li>low: ${trails[0].low}</li>
+                           <li>longitude: ${trails[0].longitude}</li>
+                           <li>latitude: ${trails[0].latitude}</li></ul>
+                          <h6> current conditions</h6>
+                          <ul><li>status: ${trails[0].conditionStatus}</li>
+                          <li>details: ${trails[0].conditionDetails}</li></ul>`);
+  trailDetails.append(conditionUL);
+  $("#trailImageCenter").append(trailDetails);
+})
 
 });
  
@@ -167,7 +209,6 @@ function searchWeather(searchValue) {
       "&appid=9ceffc16572e37c6256c7430926365a7&units=imperial",
     dataType: "json",
     success: function (data) {
-      console.log(data.name);
       $("#forecastHeader").html(`${data.name} - 5 Day Forecast`);
       $("#today").empty();
       $("#forecast").empty();

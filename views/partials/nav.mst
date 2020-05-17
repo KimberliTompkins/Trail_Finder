@@ -19,5 +19,5 @@
       </div>
     </nav>
      </div>
-    <div class="headerIMG"></div>
+    {{! <div class="headerIMG"></div> }}
     

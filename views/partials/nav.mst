@@ -1,5 +1,5 @@
 <div class=wrapper>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e6eeff;">
       <a class="navbar-brand" href="/">Trail Finder</a>
       <button
         class="navbar-toggler"

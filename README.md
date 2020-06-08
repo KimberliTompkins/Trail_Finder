@@ -13,7 +13,7 @@
 ## Deployed site
 [Trail Finder](https://colorado-trail-finder.herokuapp.com/)
 
-![Trail Finder](trail_finder.gif)
+![Trail Finder](TrailFinder.gif)
 
 
 
